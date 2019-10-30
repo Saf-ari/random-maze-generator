@@ -17,15 +17,15 @@
 
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="lib/jasmine-1.2.0/jasmine.css">
-    
+
     <!-- Mobile viewport optimized: h5bp.com/viewport -->
     <meta name="viewport" content="width=device-width">
 </head>
 <body class='index'>
-    <p id="pleasewait">Generating maze, please wait ...</p>
+
     <canvas id="maze" width="600" height="600"></canvas>
 
-    <input type="submit" value="Solve Maze" id="solve"></input>
+  
 
     <script src="lib/jquery.min.js"></script>
     <script src="lib/underscore-min.js"></script>
@@ -36,12 +36,12 @@
     <script src="src/maze.js"></script>
     <script>
         var maze = new Maze(document, 'maze');
-        var waitElem = $("#pleasewait");
-        
+      //  var waitElem = $("#pleasewait");
+
         setTimeout(function() {
             maze.generate();
             maze.draw();
-            waitElem.remove();
+            //waitElem.remove();
             $("#solve").show();
         }, 1000);
 
