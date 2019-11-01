@@ -25,23 +25,24 @@
 
     <canvas id="maze" width="600" height="600"></canvas>
 
-  
+
 
     <script src="lib/jquery.min.js"></script>
     <script src="lib/underscore-min.js"></script>
     <script src="src/array.js"></script>
+    <script src="src/config.js"></script>
     <script src="src/cell.js"></script>
     <script src="src/mazeGenerator.js"></script>
     <script src="src/graph.js"></script>
     <script src="src/maze.js"></script>
+    <script src="src/animate.js"></script>
     <script>
         var maze = new Maze(document, 'maze');
-      //  var waitElem = $("#pleasewait");
 
         setTimeout(function() {
             maze.generate();
             maze.draw();
-            //waitElem.remove();
+
             $("#solve").show();
         }, 1000);
 
@@ -51,5 +52,9 @@
             });
         });
     </script>
+    <body onload="Start()">
+  <canvas id="mainCanvas" width="600" height="600" style="border:1px solid black;">
+  </canvas>
+</body>
 </body>
 </html>

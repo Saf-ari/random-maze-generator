@@ -8,7 +8,7 @@ var Maze = function(doc, elemId) {
   this.generator = new MazeGenerator(this.horizCells, this.vertCells);
   this.cellWidth = this.width / this.horizCells;
   this.cellHeight = this.height / this.vertCells;
-  
+
   var self = this;
 
   self.ctx.strokeStyle = "rgb(0, 0, 0)";
@@ -46,7 +46,7 @@ var Maze = function(doc, elemId) {
 
     drawSolution: function() {
       var path = self.generator.path;
-      
+
       for(var i = 0; i < path.length; i++) {
         (function () {
           var cell = path[i];
@@ -76,13 +76,13 @@ var Maze = function(doc, elemId) {
           var leftCell = graph.getCellAt(cell.x - 1, cell.y);
           var rightCell = graph.getCellAt(cell.x + 1, cell.y);
           var bottomCell = graph.getCellAt(cell.x, cell.y + 1);
-          
+
           if(!edgeAlreadyDrawn(cell, topCell) && graph.areConnected(cell, topCell)) {
             var x1 = cell.x * self.cellWidth;
             var y1 = cell.y * self.cellHeight;
             var x2 = x1 + self.cellWidth;
             var y2 = y1;
-            
+
             this.drawLine(x1, y1, x2, y2);
             drawnEdges.push([cell, topCell]);
           }
@@ -90,7 +90,7 @@ var Maze = function(doc, elemId) {
           if(!edgeAlreadyDrawn(cell, leftCell) && graph.areConnected(cell, leftCell)) {
             var x2 = x1;
             var y2 = y1 + self.cellHeight;
-            
+
             this.drawLine(x1, y1, x2, y2);
             drawnEdges.push([cell, leftCell]);
           }
@@ -100,7 +100,7 @@ var Maze = function(doc, elemId) {
             var y1 = cell.y * self.cellHeight;
             var x2 = x1;
             var y2 = y1 + self.cellHeight;
-            
+
             this.drawLine(x1, y1, x2, y2);
             drawnEdges.push([cell, rightCell]);
           }
@@ -110,10 +110,10 @@ var Maze = function(doc, elemId) {
             var y1 = (cell.y * self.cellHeight) + self.cellHeight;
             var x2 = x1 + self.cellWidth;
             var y2 = y1;
-            
+
             this.drawLine(x1, y1, x2, y2);
             drawnEdges.push([cell, bottomCell]);
-          }          
+          }
         }
       }
     },

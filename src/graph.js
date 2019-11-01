@@ -5,7 +5,7 @@ var Graph = function(width, height) {
   this.removedEdges = [];
 
   var self = this;
-
+// return cell
   this.getCellAt = function (x, y) {
     if(x >= this.width || y >= this.height || x < 0 || y < 0) {
     	return null;
@@ -15,7 +15,7 @@ var Graph = function(width, height) {
     }
     return this.cells[x][y];
   };
-
+//distance between calculator
   this.getCellDistance = function (cell1, cell2) {
     var xDist = Math.abs(cell1.x - cell2.x);
     var yDist = Math.abs(cell1.y - cell2.y);
@@ -27,7 +27,7 @@ var Graph = function(width, height) {
   	if(!cell1 || !cell2) {
   		return false;
   	}
-  	if(Math.abs(cell1.x - cell2.x) > 1 || 
+  	if(Math.abs(cell1.x - cell2.x) > 1 ||
   		Math.abs(cell1.y - cell2.y) > 1) {
   		return false;
   	}
