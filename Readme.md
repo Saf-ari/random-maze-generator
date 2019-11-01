@@ -1,34 +1,13 @@
-# Random maze generator/solver
+# Game
+The game is a detective searching a labyrinth for murders.  They have to leave the labyrinth and the only way to avoid being killed is to shine their flashlight on the killers.  When they are not shining light on the killers they come and attack.  If they pass over certain objects there are lights within the maze that will turn on by clicking the spacebar.  Also in the maze are drops of blood and the detective wants to collect those (like game coins) as clues.  Each level has more murderers and less lights, etc. On harder levels the detective should have to find light switches within the labyrinth to turn on lights to make the level doable (so that when there are so many killers there is enough light to shine on all of them).  The background of the labyrinth should be blue.   
 
-## Overview
+In the labyrinth, the dectective starts in a sealed off room.  Once they start moving a wall of the room opens and they are now susceptible to attack from the killers.  The killers can move significantly faster than the decetive who should move pretty slowly.  The killer's attack happens basically instanteously.  If the walls of the labyrinth block the dectective from the murderer, then the murderer will not attack.  Only if the dectective can be seen and is not shining the flashlight on the killer can they be killed.  If the detective is found within the range of vision of the murderer, and the light source is not on the killer, than the murderer is immediatly at the location of the detective and the detective is dead and has lost the game.  The decetive should be the size of about half the wall.  
 
-This is just a simple random maze generator and solver I wrote for fun that gets drawn over a canvas on the page. It is fully written in JavaScript and tested with Jasmine.
+As the detective, you want to get out of the labyrinth and collect the blood inside of the maze and beat your previous times.  
 
-Please feel free to fork and make comments/suggestions! Thanks!
 
-## Implementation details
+When multiplayer one person uses controls the detective and the other player controls the flashlight.  
 
-### Maze Generation
+Time, help, number of coins will be projected on the game 
 
-The maze is generated using a [Graph](http://en.wikipedia.org/wiki/Graph_(data_structure)) structure and a recursive [depht-first search algorithm](http://en.wikipedia.org/wiki/Depth-first_search).
-All graph nodes (cells) are connected by default. By connected, I mean there is a wall separating them in the maze. As we run the DFS algorithm
-to generate the maze, we start removing connections and store them in an array of removed edges in the Graph class.
 
-The size and complexity of the maze can be configured setting different width/height for the canvas element and setting the ``horizCells`` and ``vertCells`` numbers in the Maze class.
-
-### Maze Solution
-
-We're using the [A * Search Algorithm](http://en.wikipedia.org/wiki/A*_search_algorithm) to find the shortest path from the start to the end of the maze. We're assuming the start cell is always the top left one, and the end is the bottom right. You can change that, however, if you like.
-
-## Screenshots
-
-![maze](https://raw.github.com/felipecsl/random-maze-generator/master/maze.png)
-
-![solved maze](https://raw.github.com/felipecsl/random-maze-generator/master/solution.png)
-
-![specs](https://raw.github.com/felipecsl/random-maze-generator/master/specs.png)
-
-## License
-
-You are free to reuse and/or modify this code however you like. 
-If you do so, please add a note referring to this original source and attribute the credits.
